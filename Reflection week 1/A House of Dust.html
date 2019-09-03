@@ -68,7 +68,8 @@ var t = 0,
 material = ['CLOUDS', 'RAINBOWS', 'RAIN', 'WATER', 'AIR', 'SUN', 'MOON', 'SNOW', 'STARS', 'PLANETS', 'BIRDS', 'ICE', 'DARK', 'LIGHT', 'WIND'],
 place = ['OVER A GREEN FIELD', 'OVER THE DESSERT', 'OVER THE SEA', 'OVER A HOUSE', 'OVER A SCHOOL', 'OVER A FIELD', 'OVER DENSE WOODS', 'OVER THE MOUNTAINS', 'OVER THE WATERFALL', 'OVER YOUR BED', 'OVER AN ISLAND', 'OVER THE TREES', 'OVER THE JUNGLE', 'OVER ANTARTICA', 'OVER THE RIVER'],
 action = ['TWINKLES', 'SHINES', 'GLARES', 'PASSES', 'HITS', 'JUMPS', 'LOOKS', 'STARES'],
-inhabitants = ['PEOPLE WHO SLEEP VERY LITTLE', 'VEGETARIANS', 'HORSES AND BIRDS', 'PEOPLE SPEAKING MANY LANGUAGES WEARING LITTLE OR NO CLOTHING', 'ALL RACES OF MEN REPRESENTED WEARING PREDOMINANTLY RED CLOTHING', 'CHILDREN AND OLD PEOPLE', 'VARIOUS BIRDS AND FISH', 'LOVERS', 'PEOPLE WHO ENJOY EATING TOGETHER', 'PEOPLE WHO EAT A GREAT DEAL', 'COLLECTORS OF ALL TYPES', 'FRIENDS AND ENEMIES', 'PEOPLE WHO SLEEP ALMOST ALL THE TIME', 'VERY TALL PEOPLE', 'AMERICAN INDIANS', 'LITTLE BOYS', 'PEOPLE FROM MANY WALKS OF LIFE', 'NEGROS WEARING ALL COLORS', 'FRIENDS', 'FRENCH AND GERMAN SPEAKING PEOPLE', 'FISHERMEN AND FAMILIES', 'PEOPLE WHO LOVE TO READ'];
+over = ['ON TOP OF', 'OVER', 'COVERING', 'HIGHER THAN', 'ALOFT', 'ATOP', 'BEYOND', 'UPON', 'OVERHEAD', 'RAISED',]
+inhabitants = ['PEOPLE WHO SLEEP VERY LITTLE', 'VEGETARIANS', 'HORSES AND BIRDS', 'PEOPLE SPEAKING MANY LANGUAGES', 'PEOPLE WEARING NO CLOTHING', 'MEN WEARING RED CLOTHING', 'CHILDREN AND OLD PEOPLE', 'VARIOUS BIRDS AND FISH', 'LOVERS', 'PEOPLE EATING TOGETHER', 'PEOPLE WHO EAT A GREAT DEAL', 'COLLECTORS OF ALL TYPES', 'FRIENDS AND ENEMIES', 'PEOPLE WHO SLEEP ALL THE TIME', 'VERY TALL PEOPLE', 'AMERICAN INDIANS', 'LITTLE BOYS', 'PEOPLE FROM MANY WALKS OF LIFE', 'FRIENDS', 'FRENCH AND GERMAN SPEAKING PEOPLE', 'FISHERMEN AND FAMILIES', 'PEOPLE WHO LOVE TO READ'];
 
 function rand_range(maximum) {
     "use strict";
@@ -80,7 +81,7 @@ function choose(array) {
 }
 function stanza() {
     "use strict";
-    return '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A SKY OF ' + choose(material) + '<br \>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + choose(place) + '<br \>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + choose(action) + '<br \>' + choose(inhabitants);
+    return '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A SKY OF ' + choose(material) + '<br \>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + choose(place) + '<br \>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + choose(action) + '<br \>ON TOP OF ' + choose(inhabitants);
 }
 function litany() {
     "use strict";
@@ -106,7 +107,7 @@ function produce_litany() {
 
 <body onload="produce_litany();">
 <div id="info">
-    <h2>A House of Dust</h2>
+    <h2>A Sky of Rain</h2>
     <h3>Alison Knowles<br>
     James Tenney</h3>
     1967<br>
@@ -118,7 +119,8 @@ function produce_litany() {
     for <a href="http://nickm.com/memslam/">Reflection Week 1</a><br>
     Also: a <a href="http://nickm.com/memslam/a_house_of_dust.py">Python 2/3</a> version
 </div>
-<div id="main"><div>A HOUSE OF DISCARDED CLOTHING<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ON THE SEA<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USING ALL AVAILABLE LIGHTING<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INHABITED BY FISHERMEN AND FAMILIES</div><div>A HOUSE OF PLASTIC<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IN A DESERTED AIRPORT<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USING CANDLES<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INHABITED BY FRIENDS</div><div>A HOUSE OF PLASTIC<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IN MICHIGAN<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USING ALL AVAILABLE LIGHTING<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INHABITED BY FISHERMEN AND FAMILIES</div><div>A HOUSE OF PLASTIC<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BY AN ABANDONED LAKE<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USING ELECTRICITY<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INHABITED BY HORSES AND BIRDS</div><div>A HOUSE OF DISCARDED CLOTHING<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IN A DESERTED CHURCH<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USING CANDLES<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INHABITED BY PEOPLE WHO SLEEP VERY LITTLE</div><div>A HOUSE OF LEAVES<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IN A METROPOLIS<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;USING CANDLES<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INHABITED BY VERY TALL PEOPLE</div></div>
+<div id="main">
+</div>
 
 
 </body></html>
