@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)http://nickm.com/memslam/a_house_of_dust.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!--
+A House of Dust reimplementation
+copyright (c) 2014 Nick Montfort <nickm@nickm.com>
+based on a 1967 program by Alison Knowles and James Tenney
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
+SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+Updated 10 March 2015 to remove a duplicate value in "place".
+Updated 17 November 2015 to remove a near-duplicate value in "inhabitants".
+Updated 18 November 2015 to add "IN A DESERT" & "ON OPEN GROUND" to "place".
+Updated 28 August 2019 to add a link to an image of the chapbook.
+-->
+<style type="text/css">
+/* <![CDATA[ */
+body {
+ background:#000;
+ color:#ccc;
+ margin:0 0 0 18pt;
+ font-family:Optima, sans-serif;
+ font-size:16pt;
+}
+a {
+ color:#117;
+ text-decoration:none;
+}
+#main {
+ padding-top:18px;
+ width:70%;
+}
+#main div {
+ font-weight:bold;
+ padding-bottom:9px;
+}
+#info {
+ top:0;
+ right:0;
+ bottom:0;
+ position:absolute;
+ height:100%;
+ width:25%;
+ color:#333;
+ background:#999;
+ margin-left:6px;
+ border-left:thin #000 solid;
+ border-bottom:thin #000 solid;
+ padding:9px;
+ font-size:80%
+}
+/* ]]> */
+</style>
+<script type="text/javascript">
+
+var t = 0,
+material = ['CLOUDS', 'RAINBOWS', 'RAIN', 'WATER', 'AIR', 'SUN', 'MOON', 'SNOW', 'STARS', 'PLANETS', 'BIRDS', 'ICE', 'DARK', 'LIGHT', 'WIND'],
+place = ['OVER A GREEN FIELD', 'OVER THE DESSERT', 'OVER THE SEA', 'OVER A HOUSE', 'OVER A SCHOOL', 'OVER A FIELD', 'OVER DENSE WOODS', 'OVER THE MOUNTAINS', 'OVER THE WATERFALL', 'OVER YOUR BED', 'OVER AN ISLAND', 'OVER THE TREES', 'OVER THE JUNGLE', 'OVER ANTARTICA', 'OVER THE RIVER'],
+action = ['TWINKLES', 'SHINES', 'GLARES', 'PASSES', 'HITS', 'JUMPS', 'LOOKS', 'STARES'],
+over = ['ON TOP OF', 'OVER', 'COVERING', 'HIGHER THAN', 'ALOFT', 'ATOP', 'BEYOND', 'UPON', 'OVERHEAD', 'RAISED',]
+inhabitants = ['PEOPLE WHO SLEEP VERY LITTLE', 'VEGETARIANS', 'HORSES AND BIRDS', 'PEOPLE SPEAKING MANY LANGUAGES', 'PEOPLE WEARING NO CLOTHING', 'MEN WEARING RED CLOTHING', 'CHILDREN AND OLD PEOPLE', 'VARIOUS BIRDS AND FISH', 'LOVERS', 'PEOPLE EATING TOGETHER', 'PEOPLE WHO EAT A GREAT DEAL', 'COLLECTORS OF ALL TYPES', 'FRIENDS AND ENEMIES', 'PEOPLE WHO SLEEP ALL THE TIME', 'VERY TALL PEOPLE', 'AMERICAN INDIANS', 'LITTLE BOYS', 'PEOPLE FROM MANY WALKS OF LIFE', 'FRIENDS', 'FRENCH AND GERMAN SPEAKING PEOPLE', 'FISHERMEN AND FAMILIES', 'PEOPLE WHO LOVE TO READ'];
+
+function rand_range(maximum) {
+    "use strict";
+    return Math.floor(Math.random() * (maximum + 1));
+}
+function choose(array) {
+    "use strict";
+    return array[rand_range(array.length - 1)];
+}
+function stanza() {
+    "use strict";
+    return '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A SKY OF ' + choose(material) + '<br \>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + choose(place) + '<br \>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' + choose(action) + '<br \>'+ choose(over) + ' ' + choose(inhabitants);
+}
+function litany() {
+    "use strict";
+    var last, text, main = document.getElementById('main');
+    if (6 > t) {
+        t += 1;
+    } else {
+        main.removeChild(document.getElementById('main').firstChild);
+    }
+    last = document.createElement('div');
+    last.innerHTML = stanza();
+    main.appendChild(last);
+}
+function produce_litany() {
+    "use strict";
+    litany();
+    setInterval(litany, 2000);
+}
+
+</script>
+  <title>A Sky of Clouds</title>
+</head>
+
+<body onload="produce_litany();">
+<div id="info">
+    <h2>A Sky of Rain</h2>
+    <h3>Alison Knowles<br>
+    James Tenney</h3>
+    1967<br>
+    Seimens System 4004, <a href="https://eastofborneo.org/wp-content/uploads/2016/08/a-house-of-dust-alison-knowles-and-james-tenney-1967-406x500.jpeg">line printer</a><br>
+    FORTRAN IV<br>
+    <br>
+    Reimplemented by<br>
+    <a href="http://behance.net/dani1294/">Daniela Morales</a><br>
+    for <a href="http://nickm.com/memslam/">Reflection Week 1</a><br>
+    Also: a <a href="http://nickm.com/memslam/a_house_of_dust.py">Python 2/3</a> version
+</div>
+<div id="main">
+</div>
+
+
+</body></html>
