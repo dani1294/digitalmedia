@@ -87,10 +87,14 @@ def doubler(sequence):
 
 #Exercise 7-3
 def accent(word):
-    if word [-1] in {'a', 'e', 'i', 'o', 'u', 'n', 's'}:
+    if word [-1] in {'a', 'e', 'i', 'o', 'u', 'n'}:
+        return 'La palabra es aguda'
+    elif word [-1] == 's' and word [-2] in {'a', 'e', 'i', 'o', 'u'}:
         return 'La palabra es aguda'
     else:
         return 'La palabra es grave, esdrujula o sobresdrujula'
+
+
 
 
 #%%
