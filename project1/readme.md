@@ -1,0 +1,3 @@
+Project 1 description
+
+Oh no! Is meant to reflect the difficulties of starting a new programming language. When we input the correct information, the code tells us that it is correct. However, when a simple character is incorrect, the program will return a random amount of lines saying that the code is incorrect. It is not telling us where, or how we can fix it, only that it is not correct. This represents the importance of a very precise code without any type of errors in order for it to function correctly. It also shows the frustration of not being able to get the code correct, and not knowing how to fix it.
