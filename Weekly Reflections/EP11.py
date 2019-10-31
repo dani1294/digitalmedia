@@ -148,7 +148,7 @@ file_list = glob.glob('*.png')
 
 for filename in file_list:
     current = Image.open(filename)
-    gob(current)
+    glob(current)
     current
 current
 
