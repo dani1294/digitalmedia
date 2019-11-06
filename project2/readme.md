@@ -1,0 +1,2 @@
+My goal for this project is to create a function that takes any image and turns it into an instagram profile picture. This will take the image and turn it into a circle by removing the alpha data of the area that remains outside of the circle. 
+Since images can be in many different sizes, I had to implement a code that would make the circle centered on the image so that it would be centered on a rectangle as well as on a square.
