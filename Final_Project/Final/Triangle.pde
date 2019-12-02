@@ -1,8 +1,7 @@
 class Triangle{
 
   int x = int(random(width));
-  int y = 100;
-  //int y = int(random(-500,-100));
+  int y = int(random(-500,-100));
   int size = int(random(20, 70));
   int r = size/2;
   int x1 = x - r; 
@@ -12,23 +11,15 @@ class Triangle{
   int x3 = x + r;
   int y3 = y + r;
   PShape triangle;
-  int speed = int(random(1,5));
+  int speed = int(random(1,3));
   
   boolean touched = false;
 
   void display(){
-    //triangle = createShape();
     fill(102,0,153);
     noStroke();
     triangle = createShape(TRIANGLE, x1, y1, x2, y2, x3, y3);
     shape(triangle);
-    //triangle.beginShape();
-    //triangle.fill(102,0,153);
-    //triangle.noStroke();
-    //triangle.vertex(x1,y1);
-    //triangle.vertex(x2,y2);
-    //triangle.vertex(x3,y3);
-    //triangle.endShape(CLOSE);
 }
   
   void fall(){
@@ -66,9 +57,6 @@ class Triangle{
       println("touched");
     }
 
-    
-    //Once one of the options is triggered, it's not possible to move the shape the other way.
-    // it goes in order, left can be triggered after right but not right after left.
   }
   
 }

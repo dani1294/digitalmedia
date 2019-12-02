@@ -4,7 +4,7 @@ class Square{
   int y = int(random(-500,-100));
   int size = int (random(20, 70));
   PShape square;
-  int speed = int(random(1,5));
+  int speed = int(random(1,3));
   boolean right = false;
   boolean left = false;
 
@@ -16,43 +16,41 @@ class Square{
   }
   
   void fall(){
-   if (y == height + size || x == width + size || x == x - size){
-      y = int(random(-200,-100));
-      x = int(random(width));
-      right = false;
-      left = false;
-    }
-    y = y+speed;
-    
-    ////not working, I want Y to stay the same if right or left is true.
-    //if ( right == false || left == false){
-    //  y = y + speed;
-    //} 
-    //else {y = y+0;}    
+
+    y = y+speed;  
   }
   
   void move(){
-    if (mouseX > x && mouseX <= x+(size/2) && mouseY > y && mouseY < y+size) {
+    if (!right && mouseX > x && mouseX <= x+(size/2) && mouseY > y && mouseY < y+size) {
       right = true;
+      left = false;
     } 
     
-    if (mouseX > x+(size/2) && mouseX <= x+size && mouseY > y && mouseY < y+size) {
-     left = true;
-    }      
-    
+    if (!left && mouseX > x+(size/2) && mouseX <= x+size && mouseY > y && mouseY < y+size) {
+       left = true;
+       right = false;
+  }          
+  
     if (right == true){
       x = x+speed;
       y = y-speed; // sort of works to keep it horizontal
-      left = false;
-    }
-    if (left == true){
-      x = x-speed;
-      y = y-speed;
-      right = false;
     }
     
-    //Once one of the options is triggered, it's not possible to move the shape the other way.
-    // it goes in order, left can be triggered after right but not right after left.
+    else if (left == true) {
+      x = x-speed;
+      y = y-speed;
+    }
+    
+    if (y == height + size || x == width + size || x == x - size){
+      restart();
+    }
+    
+  }
+  
+  void restart(){
+      y = int(random(-200,-100));
+      x = int(random(width));
+      right = left = false;
   }
   
 }

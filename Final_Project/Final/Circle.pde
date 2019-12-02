@@ -5,7 +5,7 @@ class Circle{
   int size = int(random(20, 70));
   int r = size/2;
   PShape circle;
-  int speed = int(random(1,5));
+  int speed = int(random(1,3));
   boolean se = false;
   boolean sw = false;
   boolean ne = false;
@@ -19,68 +19,60 @@ class Circle{
   }
   
   void fall(){
-   if (y == height + r || x == width + r || x == x - size){
-      y = int(random(-200,-100));
-      x = int(random(width));
-      se = false;
-      sw = false;
-      ne = false;
-      nw = false;
-    }
-    y = y +speed;
-    //not working, I want Y to stay the same if right or left is true.
-    //if ( se == false || sw == false || ne == false || nw == false){
-    //  y = y + speed;
-    //} 
-    //else {y = y+0;}    
+    y = y +speed; 
+    
+    if(y > height + (size*2)){
+      restart();}
   }
   
   void move(){
     //Circle moves in diagonals
-    if(mouseX > x-r && mouseX < x && mouseY > y-r && mouseY < y){
+    if(!se && mouseX > x-r && mouseX < x && mouseY > y-r && mouseY < y){
       se = true;
+      sw = ne = nw = false;      
     }
-    if(mouseX > x && mouseX < x+r && mouseY > y-r && mouseY < y){
+    if(!sw && mouseX > x && mouseX < x+r && mouseY > y-r && mouseY < y){
       sw = true;
+      se = ne = nw = false;
     }
-    if(mouseX > x-r && mouseX < x && mouseY > y && mouseY < y+r){
+    if(!ne && mouseX > x-r && mouseX < x && mouseY > y && mouseY < y+r){
       ne = true;
+      se = sw = nw = false;
     }
-    if(mouseX > x && mouseX < x+r && mouseY > y && mouseY < y+r){
+    if(!nw && mouseX > x && mouseX < x+r && mouseY > y && mouseY < y+r){
       nw = true;
+      se = sw = ne = false;
     }
         
     if (se == true){
       x = x+speed;
       y = y+speed;
-      sw = false;
-      ne = false;
-      nw = false;
     }
     if (sw == true){
       x = x-speed;
-      y = y+speed;
-      se = false;
-      ne = false;
-      nw = false;
+      y = y+speed;     
     }    
     if (ne == true){
       x = x+speed;
-      y = y-(speed*2);
-      se = false;
-      sw = false;
-      nw = false;
+      y = y-(speed*2);    
     } 
     if (nw == true){
       x = x-speed;
-      y = y-(speed*2);
-      se = false;
-      sw = false;
-      ne = false;
+      y = y-(speed*2);   
     }
     
-    //Once one of the options is triggered, it's not possible to move the shape the other way.
-    // it goes in order, left can be triggered after right but not right after left.
-}
+  if ( se == true || sw == true || ne == true || nw == true){
+    
+     if (y > height + (size*2) || x >= width + r || x <= x - size || y < -(size*2)){
+      restart();
+    }
+  }
+ }
+ 
+ void restart(){
+      y = int(random(-200,-100));
+      x = int(random(width - size));
+      se = sw = ne = nw = false;
+ }
   
 }
