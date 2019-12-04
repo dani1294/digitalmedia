@@ -1,11 +1,11 @@
 class Circle{
 
   int x = int(random(width));
-  int y = int(random(-500,-100));
-  int size = int(random(20, 70));
+  int y = int(random(-800,-300));
+  int size = int(random(100, 200));
   int r = size/2;
   PShape circle;
-  int speed = int(random(1,3));
+  int speed = int(random(2,6));
   boolean se = false;
   boolean sw = false;
   boolean ne = false;

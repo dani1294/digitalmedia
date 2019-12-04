@@ -1,10 +1,10 @@
 class Square{
 
   int x = int(random(width));
-  int y = int(random(-500,-100));
-  int size = int (random(20, 70));
+  int y = int(random(-800,-300));
+  int size = int (random(100, 200));
   PShape square;
-  int speed = int(random(1,3));
+  int speed = int(random(2,6));
   boolean right = false;
   boolean left = false;
 
@@ -18,6 +18,10 @@ class Square{
   void fall(){
 
     y = y+speed;  
+    
+    if(y > height + size){
+      restart();
+    }
   }
   
   void move(){
@@ -26,7 +30,7 @@ class Square{
       left = false;
     } 
     
-    if (!left && mouseX > x+(size/2) && mouseX <= x+size && mouseY > y && mouseY < y+size) {
+    else if (!left && mouseX > x+(size/2) && mouseX <= x+size && mouseY > y && mouseY < y+size) {
        left = true;
        right = false;
   }          
@@ -40,10 +44,13 @@ class Square{
       x = x-speed;
       y = y-speed;
     }
-    
-    if (y == height + size || x == width + size || x == x - size){
-      restart();
+       
+    if (right == true || left == true){
+      if (y > height + size || x > width + size || x < x - size){
+        restart();
     }
+    }
+    
     
   }
   

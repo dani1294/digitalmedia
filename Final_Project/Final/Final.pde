@@ -5,7 +5,8 @@ Circle[] manyCircles = new Circle[5];
 Triangle[] manyTriangles = new Triangle[5];
 
 void setup(){
-  size(512, 424); //size that is detectable for Kinect. 
+  //size(512, 424); //size that is detectable for Kinect. Kinect will be mapped to screen size: kinect.width = map(kinect.width,0,512,0,2736); & kinect.height = map(kinect.height, 0,424, 0,1824); 
+  size(2736,1824);
   for(int i = 0; i <manySquares.length; i ++){
     manySquares[i] = new Square();
   }
@@ -46,8 +47,8 @@ void tri(){
     for(int i=0; i < manyTriangles.length; i++){
     manyTriangles[i].display();  
     manyTriangles[i].fall();
-   // manyTriangles[i].move();
-  } 
+    manyTriangles[i].move();
+    } 
 }
 
 // Add delay to when the shapes start falling so they dont all start at the same time. Circles first, then squares, etc.
