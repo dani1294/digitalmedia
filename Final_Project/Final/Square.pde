@@ -33,7 +33,7 @@ class Square{
     else if (!left && mouseX > x+(size/2) && mouseX <= x+size && mouseY > y && mouseY < y+size) {
        left = true;
        right = false;
-  }          
+    }          
   
     if (right == true){
       x = x+speed;
@@ -46,12 +46,11 @@ class Square{
     }
        
     if (right == true || left == true){
-      if (y > height + size || x > width + size || x < x - size){
+      if (y > height + size || x > width + size || x < 0 - size){
         restart();
     }
     }
-    
-    
+
   }
   
   void restart(){

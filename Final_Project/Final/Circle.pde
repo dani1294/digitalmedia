@@ -31,15 +31,15 @@ class Circle{
       se = true;
       sw = ne = nw = false;      
     }
-    if(!sw && mouseX > x && mouseX < x+r && mouseY > y-r && mouseY < y){
+    else if(!sw && mouseX > x && mouseX < x+r && mouseY > y-r && mouseY < y){
       sw = true;
       se = ne = nw = false;
     }
-    if(!ne && mouseX > x-r && mouseX < x && mouseY > y && mouseY < y+r){
+    else if(!ne && mouseX > x-r && mouseX < x && mouseY > y && mouseY < y+r){
       ne = true;
       se = sw = nw = false;
     }
-    if(!nw && mouseX > x && mouseX < x+r && mouseY > y && mouseY < y+r){
+    else if(!nw && mouseX > x && mouseX < x+r && mouseY > y && mouseY < y+r){
       nw = true;
       se = sw = ne = false;
     }
@@ -48,25 +48,25 @@ class Circle{
       x = x+speed;
       y = y+speed;
     }
-    if (sw == true){
+    else if (sw == true){
       x = x-speed;
       y = y+speed;     
     }    
-    if (ne == true){
+    else if (ne == true){
       x = x+speed;
       y = y-(speed*2);    
     } 
-    if (nw == true){
+    else if (nw == true){
       x = x-speed;
       y = y-(speed*2);   
     }
     
-  if ( se == true || sw == true || ne == true || nw == true){
+    if ( se == true || sw == true || ne == true || nw == true){
     
-     if (y > height + (size*2) || x >= width + r || x <= x - size || y < -(size*2)){
-      restart();
+       if (y > height + (size*2) || x >= width + r || x <= x - size || y < -(size*2)){
+          restart();
+        }
     }
-  }
  }
  
  void restart(){

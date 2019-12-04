@@ -20,7 +20,7 @@ class Triangle{
   float area1;
   float area2;
   float area3;
-  float angle = 0;
+  //float angle = 0; //for rotation speed
 
   void display(){
     fill(102,0,153);
@@ -74,14 +74,12 @@ class Triangle{
       
       y1 = y1 + (speed*5); 
       y2 = y2 + (speed*5); 
-      y3 = y3 + (speed*5); 
-      
+      y3 = y3 + (speed*5);   
     }    
     
       if(touched == true && y1 < y - size || untouched && y2 > height + size){
         restart();
-      }
-    
+      }    
   }
   
    void restart(){
