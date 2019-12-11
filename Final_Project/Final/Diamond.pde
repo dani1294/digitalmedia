@@ -24,6 +24,7 @@ class Diamond{
   
   boolean touched = false;
   boolean untouched = false;
+  boolean notouch = true;
 
   void display(){
     fill(255, 153, 0);
@@ -58,20 +59,27 @@ class Diamond{
     if (!touched && area1 + area2 + area3 + area4 == area) {
     touched = true;
     untouched = false;
+    
     }
     else if(touched && area1 + area2 + area3 + area4 == area){
       //if touched a second time
       touched = false;
       untouched = true;
     }
-        
-    if (touched == true){
-     x1 = x-2;
-     x3 = x+2;
+    else if(area1 + area2 + area3 + area4 != area){
+      notouch = true;
     }
-    else if (untouched == true){      
+        
+    if (notouch && touched == true){
+     x1 = x-(r/4);
+     x3 = x+(r/4);
+     notouch = false;
+    }
+    else if (notouch && untouched == true){      
       x1 = x - r;
       x3 = x+r;
+      notouch = false;
+      
     }    
     
     if(touched == true && y2 > height + size || untouched == true && y2 > height + size){
